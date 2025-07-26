@@ -7,35 +7,27 @@
 
 @layer base {
   :root {
-    --background: 0 0% 8%; /* Dark charcoal */
-    --foreground: 0 0% 95%; /* Light grey/white */
-
-    --card: 0 0% 12%; /* Slightly lighter charcoal */
-    --card-foreground: 0 0% 95%;
-
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 95%;
-
-    --primary: 0 0% 85%; /* Light grey */
-    --primary-foreground: 0 0% 15%; /* Dark charcoal */
-
-    --secondary: 0 0% 18%; /* Medium charcoal */
-    --secondary-foreground: 0 0% 95%;
-
-    --muted: 0 0% 22%; /* Lighter charcoal */
-    --muted-foreground: 0 0% 70%; /* Medium grey */
-
-    --accent: 0 0% 85%; /* Light grey accent */
-    --accent-foreground: 0 0% 15%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 0 0% 22%; /* Medium charcoal border */
-    --input: 0 0% 22%;
-    --ring: 0 0% 85%; /* Light grey ring */
-
-    --radius: 0.5rem;
+    /* Waterr AI Brand Colors */
+    --background: 240 24% 11%; /* #1a1832 - Deep Charcoal Navy */
+    --foreground: 0 0% 93.3%; /* #eeeeee - Soft Neutral White */
+    --card: 240 24% 13%;
+    --card-foreground: 0 0% 93.3%;
+    --popover: 240 24% 11%;
+    --popover-foreground: 0 0% 93.3%;
+    --primary: 212 100% 50%; /* #007aff - iOS Blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 24% 15%;
+    --secondary-foreground: 0 0% 93.3%;
+    --muted: 240 24% 18%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 212 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 24% 22%;
+    --input: 240 24% 18%;
+    --ring: 212 100% 50%;
+    --radius: 0.75rem;
   }
 
   .light-mode {
@@ -69,9 +61,18 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background font-inter text-foreground antialiased;
     letter-spacing: -0.025em;
+  }
+
+  .section-texture-bg {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+    background-size: 40px 40px;
   }
   
   ::selection {
