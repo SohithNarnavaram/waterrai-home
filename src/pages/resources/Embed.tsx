@@ -5,12 +5,14 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Copy, Check, Settings, Globe, Code2, ArrowLeft, Share } from 'lucide-react';
+import { Copy, Check, ArrowLeft, Share, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@/hooks/use-toast';
 import Header from '@/components/Header';
 
 const Embed = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [width, setWidth] = useState(800);
   const [height, setHeight] = useState(600);
   const [allowFullscreen, setAllowFullscreen] = useState(true);
@@ -19,64 +21,122 @@ const Embed = () => {
 
   const embedCode = `<iframe src="https://waterr.ai/embed/488/ai-sales-roleplay-challenge" width="${width}px" height="${height}px" frameborder="0"${allowFullscreen ? ' allowfullscreen' : ''} allow="camera; microphone; autoplay; display-capture; fullscreen"${responsive ? ' style="max-width: 100%;"' : ''}></iframe>`;
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(embedCode);
+  const directLink = "https://waterr.ai/embed/488/ai-sales-roleplay-challenge";
+
+  const copyToClipboard = (text: string, type: string) => {
+    navigator.clipboard.writeText(text);
     setCopied(true);
+    toast({
+      description: `${type} copied to clipboard!`,
+      duration: 2000,
+    });
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const scrollToEmbed = () => {
+    document.getElementById('embed-config')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <>
       <Header />
-      <div className="min-h-screen" style={{ backgroundColor: '#eeeeee' }}>
+      <div className="min-h-screen bg-gray-50">
+        {/* Header Area */}
+        <div className="border-b bg-white">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <button 
+              onClick={() => navigate('/')}
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </button>
+            
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={scrollToEmbed}
+                    className="flex items-center gap-2"
+                  >
+                    <Share className="w-4 h-4" />
+                    Embed
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Jump to embed configuration</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+        </div>
+
         {/* Hero Section */}
-        <section className="py-24 px-4">
+        <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6" style={{ color: '#1a1832' }}>
-              Add Waterr AI to Any Website
+              Add Waterr AI to your Website
             </h1>
-            <h2 className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Easily integrate your real-time meeting agent into any site or platform using one embed snippet.
+            </p>
+          </div>
+        </section>
+
+        {/* Intro Section */}
+        <section className="py-12 px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6" style={{ color: '#1a1832' }}>
+              Effortlessly Embed Your Waterr AI Scenario on Your Website
             </h2>
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-6 text-white"
-              style={{ backgroundColor: '#1a1832' }}
-              onClick={() => window.open('https://waterr.ai/', '_blank')}
-            >
-              Customize Agent
-            </Button>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Waterr AI offers a seamless, customizable embedding experience, ensuring visitors stay engaged on your site — just like top-tier tools such as Cal.com.
+            </p>
           </div>
         </section>
 
-        {/* What Is Embedding Section */}
-        <section className="py-16 px-4">
+        {/* Comparison Section */}
+        <section className="py-12 px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="border-red-200 bg-red-50">
+                <CardHeader>
+                  <CardTitle className="text-red-800">Without Embed</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <p className="text-red-700">❌ Redirects users to new tab</p>
+                  <p className="text-red-700">❌ Interrupts site experience</p>
+                  <p className="text-red-700">❌ Minimal control over UX</p>
+                </CardContent>
+              </Card>
+              
+              <Card className="border-green-200 bg-green-50">
+                <CardHeader>
+                  <CardTitle className="text-green-800">With Waterr AI Embed</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <p className="text-green-700">✅ Embedded directly on your website</p>
+                  <p className="text-green-700">✅ Fully integrated, no redirection</p>
+                  <p className="text-green-700">✅ Full styling + responsive customization</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Embed Config Section */}
+        <section className="py-16 px-4" id="embed-config">
           <div className="max-w-4xl mx-auto">
             <Card className="mb-8">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2" style={{ color: '#1a1832' }}>
-                  <Globe className="w-6 h-6" />
-                  What Is Embedding?
+                <CardTitle className="text-2xl" style={{ color: '#1a1832' }}>
+                  Embed Scenario
                 </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Embedding lets you deploy a live Waterr AI assistant on your own website, product dashboard, or client portal — without writing any backend logic.
+                <p className="text-gray-600">
+                  Configure settings and copy the embed code for your website. The embed URL works without authentication.
                 </p>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Live Embed Configuration Tool */}
-        <section className="py-16 px-4">
-          <div className="max-w-4xl mx-auto">
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2" style={{ color: '#1a1832' }}>
-                  <Settings className="w-6 h-6" />
-                  Live Embed Configuration Tool
-                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -121,105 +181,136 @@ const Embed = () => {
                   </div>
                 </div>
 
+                {/* Live Preview */}
                 <div className="space-y-4">
-                  <Label>Embed Code Preview</Label>
+                  <Label>Live Preview</Label>
+                  <div className="border rounded-lg p-4 bg-gray-50">
+                    <iframe 
+                      src={directLink}
+                      width={Math.min(width, 400)}
+                      height={Math.min(height, 300)}
+                      frameBorder="0"
+                      allowFullScreen={allowFullscreen}
+                      allow="camera; microphone; autoplay; display-capture; fullscreen"
+                      style={{ maxWidth: '100%' }}
+                      className="mx-auto block"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <Label>Embed Code</Label>
                   <div className="relative">
                     <pre className="bg-gray-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto">
                       <code>{embedCode}</code>
                     </pre>
-                    <Button
-                      onClick={copyToClipboard}
-                      className="absolute top-2 right-2 p-2"
-                      variant="secondary"
-                      size="sm"
-                    >
-                      {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                    </Button>
                   </div>
                   <p className="text-sm text-gray-600">
                     This code updates automatically as you change the settings above.
                   </p>
+                  
+                  <div className="flex gap-3">
+                    <Button
+                      onClick={() => copyToClipboard(embedCode, 'Embed code')}
+                      className="flex items-center gap-2"
+                      style={{ backgroundColor: '#1a1832' }}
+                    >
+                      <Copy className="w-4 h-4" />
+                      Copy Embed Code
+                    </Button>
+                    <Button
+                      onClick={() => copyToClipboard(directLink, 'Direct link')}
+                      variant="outline"
+                      className="flex items-center gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Copy Direct Link
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
           </div>
         </section>
 
-        {/* Step-by-Step Guide */}
-        <section className="py-16 px-4">
+        {/* Benefits List */}
+        <section className="py-12 px-4">
           <div className="max-w-4xl mx-auto">
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2" style={{ color: '#1a1832' }}>
-                  <Code2 className="w-6 h-6" />
-                  How to Embed in 3 Simple Steps
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div 
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0"
-                      style={{ backgroundColor: '#1a1832' }}
-                    >
-                      1
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">Configure Settings</h3>
-                      <p className="text-gray-700">Select width and height, enable responsive if needed.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-4">
-                    <div 
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0"
-                      style={{ backgroundColor: '#1a1832' }}
-                    >
-                      2
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">Copy the Code</h3>
-                      <p className="text-gray-700">Copy the embed code from the preview above.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-4">
-                    <div 
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0"
-                      style={{ backgroundColor: '#1a1832' }}
-                    >
-                      3
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">Embed on Your Site</h3>
-                      <p className="text-gray-700">Paste into your website's HTML or CMS widget section.</p>
-                    </div>
-                  </div>
+            <h2 className="text-2xl font-bold mb-8 text-center" style={{ color: '#1a1832' }}>
+              Why Embed Waterr AI?
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-700">Embed as many scenarios as needed on the same page</p>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-700">Matches your brand with custom sizing</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-700">Paste one line of code — no developer needed</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-700">Responsive across devices and fullscreen compatible</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-700">Keeps users on your domain and improves retention</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Need Help Section */}
+        {/* Trusted Logos Section */}
+        <section className="py-12 px-4 bg-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-gray-600 mb-8">Trusted by fast-growing companies around the world</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+              <div className="text-2xl font-bold text-gray-400">Framer</div>
+              <div className="text-2xl font-bold text-gray-400">AngelList</div>
+              <div className="text-2xl font-bold text-gray-400">Storyblok</div>
+              <div className="text-2xl font-bold text-gray-400">Antimetal</div>
+              <div className="text-2xl font-bold text-gray-400">Lumistry</div>
+            </div>
+          </div>
+        </section>
+
+        {/* Support Section */}
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Card>
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold mb-4" style={{ color: '#1a1832' }}>
-                  Need Help?
+                  Need help embedding?
                 </h2>
                 <p className="text-lg text-gray-700 mb-6">
-                  Want help customizing? Contact us or schedule a demo with a human.
+                  Contact our team or join the community
                 </p>
-                <Button 
-                  size="lg" 
-                  className="text-lg px-8 py-6 text-white"
-                  style={{ backgroundColor: '#1a1832' }}
-                  onClick={() => window.open('https://waterr.ai/', '_blank')}
-                >
-                  Talk to Team
-                </Button>
+                <div className="flex gap-4 justify-center">
+                  <Button 
+                    size="lg" 
+                    className="text-lg px-6 py-3"
+                    style={{ backgroundColor: '#1a1832' }}
+                    onClick={() => window.open('mailto:hello@waterr.ai', '_blank')}
+                  >
+                    Email Support
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    className="text-lg px-6 py-3"
+                    onClick={() => window.open('https://discord.gg/waterr', '_blank')}
+                  >
+                    Join Discord
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>
