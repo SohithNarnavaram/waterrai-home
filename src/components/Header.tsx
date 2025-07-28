@@ -177,27 +177,30 @@ const Header = () => {
                 
                 {/* Resources Dropdown */}
                 {showResourcesDropdown && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-card border border-border rounded-xl shadow-2xl p-4 z-50">
-                    <div className="space-y-2">
-                      {resourcesDropdownItems.map((item, index) => (
-                        <button
-                          key={index}
-                          onClick={() => handleResourceItemClick(item.route)}
-                          className="w-full text-left p-3 rounded-lg hover:bg-muted transition-colors group"
-                        >
-                          <div className="flex items-center gap-3">
-                            <item.icon size={16} className="text-muted-foreground group-hover:text-primary" />
-                            <div>
-                              <div className="font-medium text-foreground group-hover:text-primary">
-                                {item.label}
-                              </div>
-                              <div className="text-xs text-muted-foreground mt-1">
-                                {item.desc}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[600px] bg-card border border-border rounded-xl shadow-2xl p-6 z-50">
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-4">By Functionality</h4>
+                      <div className="grid grid-cols-2 gap-4">
+                        {resourcesDropdownItems.map((item, index) => (
+                          <button
+                            key={index}
+                            onClick={() => handleResourceItemClick(item.route)}
+                            className="w-full text-left p-4 rounded-lg hover:bg-muted transition-colors group"
+                          >
+                            <div className="flex items-start gap-3">
+                              <item.icon size={20} className="text-muted-foreground group-hover:text-primary mt-1 flex-shrink-0" />
+                              <div className="min-w-0">
+                                <div className="font-medium text-foreground group-hover:text-primary">
+                                  {item.label}
+                                </div>
+                                <div className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                                  {item.desc}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </button>
-                      ))}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
