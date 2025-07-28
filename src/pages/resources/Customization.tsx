@@ -28,7 +28,7 @@ const Customization = () => {
         </section>
 
         {/* Body Section */}
-        <section className="py-16 px-4">
+        <section className="py-6 px-4">
           <div className="max-w-4xl mx-auto">
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Create AI agents that match your brand voice and business processes. 
@@ -75,24 +75,24 @@ const Customization = () => {
             </div>
 
             {/* Button Group */}
-            <div className="flex justify-center mb-8">
-              <div className="inline-flex rounded-lg border border-border bg-muted p-1">
+            <div className="flex justify-center mb-12">
+              <div className="inline-flex rounded-xl border-2 border-primary/20 bg-card p-2 shadow-lg">
                 <button
                   onClick={() => setActiveView('memo')}
-                  className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`px-8 py-4 rounded-lg text-base font-semibold transition-all duration-200 ${
                     activeView === 'memo' 
-                      ? 'bg-background text-foreground shadow-sm' 
-                      : 'text-muted-foreground hover:text-foreground'
+                      ? 'bg-primary text-primary-foreground shadow-md scale-105' 
+                      : 'text-foreground hover:bg-muted hover:scale-102'
                   }`}
                 >
                   AI Meeting Memo
                 </button>
                 <button
                   onClick={() => setActiveView('persona')}
-                  className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`px-8 py-4 rounded-lg text-base font-semibold transition-all duration-200 ${
                     activeView === 'persona' 
-                      ? 'bg-background text-foreground shadow-sm' 
-                      : 'text-muted-foreground hover:text-foreground'
+                      ? 'bg-primary text-primary-foreground shadow-md scale-105' 
+                      : 'text-foreground hover:bg-muted hover:scale-102'
                   }`}
                 >
                   AI Persona
