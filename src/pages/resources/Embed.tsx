@@ -77,11 +77,20 @@ const Embed = () => {
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6" style={{ color: '#1a1832' }}>
-              Add Waterr AI to your Website
+              Add Waterr AI to Your Website
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
               Easily integrate your real-time meeting agent into any site or platform using one embed snippet.
             </p>
+            
+            {/* Hero Screenshot */}
+            <div className="max-w-2xl mx-auto">
+              <img 
+                src="/lovable-uploads/666a58c9-58d0-4341-85e2-8da2d3e0147f.png" 
+                alt="Waterr AI Embed Configuration Interface"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
           </div>
         </section>
 
