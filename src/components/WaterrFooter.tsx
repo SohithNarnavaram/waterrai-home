@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Twitter, ExternalLink } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, ExternalLink } from 'lucide-react';
 
 const WaterrFooter = () => {
   const footerSections = {
@@ -35,13 +35,18 @@ const WaterrFooter = () => {
   const socialLinks = [
     { 
       name: "LinkedIn", 
-      href: "https://linkedin.com/company/waterr-ai", 
+      href: "https://www.linkedin.com/company/waterrai/?viewAsMember=true", 
       icon: Linkedin 
     },
     { 
       name: "Twitter", 
-      href: "https://twitter.com/waterr_ai", 
+      href: "https://x.com/waterr_ai", 
       icon: Twitter 
+    },
+    { 
+      name: "Instagram", 
+      href: "https://www.instagram.com/waterr.ai/?utm_source=ig_web_button_share_sheet", 
+      icon: Instagram 
     },
     { 
       name: "Product Hunt", 

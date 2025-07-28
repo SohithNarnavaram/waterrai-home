@@ -57,7 +57,7 @@ const WaterrHeroSection = () => {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 items-center">
           <Button 
-            onClick={() => window.open('/create', '_blank')}
+            onClick={() => window.open('https://waterr.ai/', '_blank')}
             className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg h-14 px-10 transition-all duration-200 font-medium"
           >
             Try Waterr AI
