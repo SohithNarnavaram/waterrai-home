@@ -9,6 +9,7 @@ import { Copy, Check, ArrowLeft, Share, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
 import Header from '@/components/Header';
+import WaterrFooter from '@/components/WaterrFooter';
 
 const Embed = () => {
   const navigate = useNavigate();
@@ -184,7 +185,28 @@ const Embed = () => {
             </div>
           </div>
         </section>
+
+        {/* CTA Section */}
+        <section className="py-24 px-4 bg-background">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
+              Ready to embed Waterr AI?
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Start creating interactive AI scenarios for your website today. No coding experience required.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="text-lg px-8 py-6">
+                Get Started Free
+              </Button>
+              <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+                View Documentation
+              </Button>
+            </div>
+          </div>
+        </section>
       </div>
+      <WaterrFooter />
     </>
   );
 };
