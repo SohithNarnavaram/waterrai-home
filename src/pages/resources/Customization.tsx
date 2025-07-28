@@ -16,12 +16,12 @@ const Customization = () => {
       <Header />
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="py-24 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold text-foreground mb-6">
+        <section className="pt-10 pb-5 px-4">
+          <div className="max-w-[960px] mx-auto text-center">
+            <h1 className="text-[2.8rem] font-bold text-foreground mb-6">
               Build Your Own AI Agent
             </h1>
-            <h2 className="text-xl text-muted-foreground mb-8">
+            <h2 className="text-[1.25rem] text-muted-foreground mb-8">
               Customize tone, workflows, and skills
             </h2>
           </div>
