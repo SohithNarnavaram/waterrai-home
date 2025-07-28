@@ -4,17 +4,20 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Copy, Check, Settings, Globe, Code2 } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Copy, Check, Settings, Globe, Code2, ArrowLeft, Share } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 
 const Embed = () => {
+  const navigate = useNavigate();
   const [width, setWidth] = useState(800);
   const [height, setHeight] = useState(600);
   const [allowFullscreen, setAllowFullscreen] = useState(true);
   const [responsive, setResponsive] = useState(true);
   const [copied, setCopied] = useState(false);
 
-  const embedCode = `<iframe src="https://waterr.ai/embed/488/ai-sales-roleplay-challenge" width="${width}px" height="${height}px" frameborder="0"${allowFullscreen ? ' allowfullscreen' : ''} allow="camera; microphone; autoplay; display-capture"${responsive ? ' style="max-width: 100%;"' : ''}></iframe>`;
+  const embedCode = `<iframe src="https://waterr.ai/embed/488/ai-sales-roleplay-challenge" width="${width}px" height="${height}px" frameborder="0"${allowFullscreen ? ' allowfullscreen' : ''} allow="camera; microphone; autoplay; display-capture; fullscreen"${responsive ? ' style="max-width: 100%;"' : ''}></iframe>`;
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(embedCode);
