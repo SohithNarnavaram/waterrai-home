@@ -11,6 +11,7 @@ const Header = () => {
   const [activePage, setActivePage] = useState('solutions');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showResourcesDropdown, setShowResourcesDropdown] = useState(false);
+  const [showSolutionsDropdown, setShowSolutionsDropdown] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false); // Default to light mode
   
   useEffect(() => {
@@ -33,11 +34,31 @@ const Header = () => {
     }
     setMobileMenuOpen(false);
     setShowResourcesDropdown(false);
+    setShowSolutionsDropdown(false);
+  };
+
+  const handleSolutionsClick = () => {
+    setShowSolutionsDropdown(!showSolutionsDropdown);
+    setActivePage('solutions');
   };
 
   const handleResourcesClick = () => {
     setShowResourcesDropdown(!showResourcesDropdown);
     setActivePage('resources');
+  };
+
+  const solutionsDropdownItems = {
+    teamSize: [
+      { label: 'For Individuals', desc: 'Personal scheduling made simple' },
+      { label: 'For Teams', desc: 'Collaborative meeting management' },
+      { label: 'For Enterprises', desc: 'Enterprise-level scheduling solutions' }
+    ],
+    useCase: [
+      { label: 'Recruiting', desc: 'Automate hiring meetings' },
+      { label: 'Education', desc: 'Scale learning support' },
+      { label: 'Sales', desc: 'Streamline prospect meetings' },
+      { label: 'Support', desc: 'Efficient customer interactions' }
+    ]
   };
 
   const resourcesDropdownItems = [
@@ -82,16 +103,65 @@ const Header = () => {
         <nav className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2">
           <div className="rounded-full px-1 py-1 backdrop-blur-md bg-background/80 border border-border shadow-lg">
             <ToggleGroup type="single" value={activePage} onValueChange={(value) => value && setActivePage(value)}>
-              <ToggleGroupItem 
-                value="solutions"
-                className={cn(
-                  "px-4 py-2 rounded-full transition-colors relative",
-                  activePage === 'solutions' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+              <div className="relative">
+                <ToggleGroupItem 
+                  value="solutions"
+                  className={cn(
+                    "px-4 py-2 rounded-full transition-colors relative flex items-center gap-1",
+                    activePage === 'solutions' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  )}
+                  onClick={handleSolutionsClick}
+                >
+                  <CircleDot size={16} className="inline-block mr-1.5" /> Solutions
+                  <ChevronDown size={14} className={`transition-transform ${showSolutionsDropdown ? 'rotate-180' : ''}`} />
+                </ToggleGroupItem>
+                
+                {/* Solutions Dropdown */}
+                {showSolutionsDropdown && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-96 bg-card border border-border rounded-xl shadow-2xl p-6 z-50">
+                    <div className="grid grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-3">By Team Size</h4>
+                        <div className="space-y-2">
+                          {solutionsDropdownItems.teamSize.map((item, index) => (
+                            <button
+                              key={index}
+                              onClick={handleNavClick('solutions')}
+                              className="w-full text-left p-3 rounded-lg hover:bg-muted transition-colors group"
+                            >
+                              <div className="font-medium text-foreground group-hover:text-primary">
+                                {item.label}
+                              </div>
+                              <div className="text-xs text-muted-foreground mt-1">
+                                {item.desc}
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-3">By Use Case</h4>
+                        <div className="space-y-2">
+                          {solutionsDropdownItems.useCase.map((item, index) => (
+                            <button
+                              key={index}
+                              onClick={handleNavClick('solutions')}
+                              className="w-full text-left p-3 rounded-lg hover:bg-muted transition-colors group"
+                            >
+                              <div className="font-medium text-foreground group-hover:text-primary">
+                                {item.label}
+                              </div>
+                              <div className="text-xs text-muted-foreground mt-1">
+                                {item.desc}
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 )}
-                onClick={handleNavClick('solutions')}
-              >
-                <CircleDot size={16} className="inline-block mr-1.5" /> Solutions
-              </ToggleGroupItem>
+              </div>
               <div className="relative">
                 <ToggleGroupItem 
                   value="resources" 
@@ -224,11 +294,14 @@ const Header = () => {
         </div>
       </header>
       
-      {/* Backdrop for closing dropdown */}
-      {showResourcesDropdown && (
+      {/* Backdrop for closing dropdowns */}
+      {(showResourcesDropdown || showSolutionsDropdown) && (
         <div 
           className="fixed inset-0 z-40" 
-          onClick={() => setShowResourcesDropdown(false)}
+          onClick={() => {
+            setShowResourcesDropdown(false);
+            setShowSolutionsDropdown(false);
+          }}
         />
       )}
     </div>
