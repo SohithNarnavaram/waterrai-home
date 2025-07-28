@@ -40,13 +40,13 @@ const Embed = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-background">
         {/* Header Area */}
-        <div className="border-b bg-white">
+        <div className="border-b bg-card">
           <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <button 
               onClick={() => navigate('/')}
-              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Home
@@ -76,10 +76,10 @@ const Embed = () => {
         {/* Hero Section */}
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6" style={{ color: '#1a1832' }}>
+            <h1 className="text-5xl font-bold mb-6 text-foreground">
               Embed Waterr AI into Your Website
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
               Copy and paste your AI scenario snippet to instantly integrate interactive experiences onto your site
             </p>
             
@@ -97,13 +97,13 @@ const Embed = () => {
         {/* Explanatory Copy Block */}
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8" style={{ color: '#1a1832' }}>
+            <h2 className="text-3xl font-bold mb-8 text-foreground">
               Get your Waterr AI scenario on your website using the Embed feature
             </h2>
             
-            <div className="space-y-8 text-lg text-gray-700">
+            <div className="space-y-8 text-lg text-muted-foreground">
               <div>
-                <h3 className="text-xl font-semibold mb-4" style={{ color: '#1a1832' }}>
+                <h3 className="text-xl font-semibold mb-4 text-foreground">
                   Without utilizing the embed:
                 </h3>
                 <ul className="space-y-2 ml-4">
@@ -114,7 +114,7 @@ const Embed = () => {
               </div>
               
               <div>
-                <h3 className="text-xl font-semibold mb-4" style={{ color: '#1a1832' }}>
+                <h3 className="text-xl font-semibold mb-4 text-foreground">
                   When using the Waterr AI embed:
                 </h3>
                 <p className="mb-4">
@@ -129,13 +129,13 @@ const Embed = () => {
         </section>
 
         {/* Feature Benefits Section */}
-        <section className="py-16 px-4 bg-gray-50">
+        <section className="py-16 px-4 bg-card">
           <div className="max-w-4xl mx-auto">
             <div className="mb-12">
-              <h2 className="text-3xl font-bold mb-6" style={{ color: '#1a1832' }}>
+              <h2 className="text-3xl font-bold mb-6 text-foreground">
                 Embedding should be simple and adding a scenario to your website should be effortless
               </h2>
-              <div className="space-y-4 text-lg text-gray-700">
+              <div className="space-y-4 text-lg text-muted-foreground">
                 <p>
                   With Waterr AI, embedding an interactive scenario is as easy as clicking a button. The platform supports multiple formats that you can embed wherever needed.
                 </p>
@@ -151,10 +151,10 @@ const Embed = () => {
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="text-center p-6">
                 <CardContent className="space-y-4">
-                  <h3 className="text-xl font-semibold" style={{ color: '#1a1832' }}>
+                  <h3 className="text-xl font-semibold text-foreground">
                     Simply matched styles
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-muted-foreground">
                     Make your embed blend seamlessly with your brand and layout
                   </p>
                 </CardContent>
@@ -162,10 +162,10 @@ const Embed = () => {
               
               <Card className="text-center p-6">
                 <CardContent className="space-y-4">
-                  <h3 className="text-xl font-semibold" style={{ color: '#1a1832' }}>
+                  <h3 className="text-xl font-semibold text-foreground">
                     Many embeds, one page
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-muted-foreground">
                     Display multiple Waterr AI scenarios together for onboarding, training, or demos
                   </p>
                 </CardContent>
@@ -173,10 +173,10 @@ const Embed = () => {
               
               <Card className="text-center p-6">
                 <CardContent className="space-y-4">
-                  <h3 className="text-xl font-semibold" style={{ color: '#1a1832' }}>
+                  <h3 className="text-xl font-semibold text-foreground">
                     Copy and paste
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-muted-foreground">
                     Just copy the snippet and drop it into your website. It works out of the box
                   </p>
                 </CardContent>
