@@ -16,19 +16,19 @@ const Customization = () => {
       <Header />
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="pt-10 pb-5 px-4">
+        <section className="pt-10 pb-2 px-4">
           <div className="max-w-[960px] mx-auto text-center">
             <h1 className="text-[2.8rem] font-bold text-foreground mb-6">
               Build Your Own AI Agent
             </h1>
-            <h2 className="text-[1.25rem] text-muted-foreground mb-8">
+            <h2 className="text-[1.25rem] text-muted-foreground mb-2">
               Customize tone, workflows, and skills
             </h2>
           </div>
         </section>
 
         {/* Body Section */}
-        <section className="py-6 px-4">
+        <section className="pt-0 px-4">
           <div className="max-w-4xl mx-auto">
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Create AI agents that match your brand voice and business processes. 
