@@ -19,22 +19,21 @@ const Customization = () => {
     <>
       <Header />
       <div className="min-h-screen bg-background">
-        {/* Back to Home Button */}
-        <div className="pt-6 px-4">
-          <div className="max-w-4xl mx-auto">
-            <Button
-              variant="outline"
+        {/* Header Area */}
+        <div className="border-b bg-card">
+          <div className="max-w-7xl mx-auto px-4 py-4">
+            <button 
               onClick={() => navigate('/')}
-              className="flex items-center gap-2 mb-6"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="w-4 h-4" />
               Back to Home
-            </Button>
+            </button>
           </div>
         </div>
 
         {/* Hero Section */}
-        <section className="pt-4 pb-2 px-4">
+        <section className="py-16 px-4">
           <div className="max-w-[960px] mx-auto text-center">
             <h1 className="text-[2.8rem] font-bold text-foreground mb-6">
               Build Your Own AI Agent
