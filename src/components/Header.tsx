@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Logo from './Logo';
-import { Menu, X, CircleDot, LayoutDashboard, DollarSign, Sun, Moon, ChevronDown } from 'lucide-react';
+import { Menu, X, CircleDot, LayoutDashboard, DollarSign, Sun, Moon, ChevronDown, Code, Zap, Settings, Link, Calendar, User, FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Switch } from '@/components/ui/switch';
@@ -62,13 +62,13 @@ const Header = () => {
   };
 
   const resourcesDropdownItems = [
-    { label: 'Embed', route: '/resources/embed', desc: 'Embed Waterr AI agents into any site with simple code blocks' },
-    { label: 'API', route: '/resources/api', desc: 'Coming soon - Control agents programmatically' },
-    { label: 'Customization', route: '/resources/customization', desc: 'Configure workflows, agent tone, and advanced automation' },
-    { label: 'Link', route: '/resources/link', desc: 'Shareable/trackable links to trigger meetings or agents' },
-    { label: 'Schedule', route: '/resources/schedule', desc: 'Interface to schedule recurring or instant AI agent sessions' },
-    { label: 'Personal', route: '/resources/personal', desc: 'Personal dashboard for saved sessions, preferences, and history' },
-    { label: 'Blog', route: '/blog', desc: 'Content hub for tutorials, insights, and AI news' }
+    { label: 'Embed', route: '/resources/embed', desc: 'Embed Waterr AI agents into any site with simple code blocks', icon: Code },
+    { label: 'API', route: '/resources/api', desc: 'Coming soon - Control agents programmatically', icon: Zap },
+    { label: 'Customization', route: '/resources/customization', desc: 'Configure workflows, agent tone, and advanced automation', icon: Settings },
+    { label: 'Link', route: '/resources/link', desc: 'Shareable/trackable links to trigger meetings or agents', icon: Link },
+    { label: 'Schedule', route: '/resources/schedule', desc: 'Interface to schedule recurring or instant AI agent sessions', icon: Calendar },
+    { label: 'Personal', route: '/resources/personal', desc: 'Personal dashboard for saved sessions, preferences, and history', icon: User },
+    { label: 'Blog', route: '/blog', desc: 'Content hub for tutorials, insights, and AI news', icon: FileText }
   ];
 
   const handleResourceItemClick = (route: string) => {
@@ -185,11 +185,16 @@ const Header = () => {
                           onClick={() => handleResourceItemClick(item.route)}
                           className="w-full text-left p-3 rounded-lg hover:bg-muted transition-colors group"
                         >
-                          <div className="font-medium text-foreground group-hover:text-primary">
-                            {item.label}
-                          </div>
-                          <div className="text-xs text-muted-foreground mt-1">
-                            {item.desc}
+                          <div className="flex items-center gap-3">
+                            <item.icon size={16} className="text-muted-foreground group-hover:text-primary" />
+                            <div>
+                              <div className="font-medium text-foreground group-hover:text-primary">
+                                {item.label}
+                              </div>
+                              <div className="text-xs text-muted-foreground mt-1">
+                                {item.desc}
+                              </div>
+                            </div>
                           </div>
                         </button>
                       ))}
