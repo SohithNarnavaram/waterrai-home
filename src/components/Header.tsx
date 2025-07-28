@@ -2,14 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Logo from './Logo';
-import { Menu, X, CircleDot, LayoutDashboard, DollarSign, Sun, Moon } from 'lucide-react';
+import { Menu, X, CircleDot, LayoutDashboard, DollarSign, Sun, Moon, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Switch } from '@/components/ui/switch';
 
 const Header = () => {
-  const [activePage, setActivePage] = useState('features');
+  const [activePage, setActivePage] = useState('solutions');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showResourcesDropdown, setShowResourcesDropdown] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false); // Default to light mode
   
   useEffect(() => {
@@ -31,6 +32,27 @@ const Header = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setMobileMenuOpen(false);
+    setShowResourcesDropdown(false);
+  };
+
+  const handleResourcesClick = () => {
+    setShowResourcesDropdown(!showResourcesDropdown);
+    setActivePage('resources');
+  };
+
+  const resourcesDropdownItems = [
+    { label: 'Embed', route: '/resources/embed', desc: 'Guide to add Waterr AI agent to websites' },
+    { label: 'API', route: '/resources/api', desc: 'Coming soon placeholder with signup form' },
+    { label: 'Customization', route: '/resources/customization', desc: 'Build custom workflows and brand agents' },
+    { label: 'Link', route: '/resources/link', desc: 'Shareable links, deep links, meeting agents' },
+    { label: 'Blog', route: '/blog', desc: 'Blog articles, use cases, tips' },
+    { label: 'Schedule Meetings', route: '/resources/schedule', desc: 'Interface to create & manage meeting agents' },
+    { label: 'Personal Page', route: '/resources/personal', desc: 'User-specific landing pages with agent settings' }
+  ];
+
+  const handleResourceItemClick = (route: string) => {
+    window.location.href = route;
+    setShowResourcesDropdown(false);
   };
 
   const toggleMobileMenu = () => {
@@ -61,25 +83,50 @@ const Header = () => {
           <div className="rounded-full px-1 py-1 backdrop-blur-md bg-background/80 border border-border shadow-lg">
             <ToggleGroup type="single" value={activePage} onValueChange={(value) => value && setActivePage(value)}>
               <ToggleGroupItem 
-                value="features"
+                value="solutions"
                 className={cn(
                   "px-4 py-2 rounded-full transition-colors relative",
-                  activePage === 'features' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  activePage === 'solutions' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                 )}
-                onClick={handleNavClick('features')}
+                onClick={handleNavClick('solutions')}
               >
-                <CircleDot size={16} className="inline-block mr-1.5" /> Features
+                <CircleDot size={16} className="inline-block mr-1.5" /> Solutions
               </ToggleGroupItem>
-              <ToggleGroupItem 
-                value="dashboard" 
-                className={cn(
-                  "px-4 py-2 rounded-full transition-colors relative",
-                  activePage === 'dashboard' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+              <div className="relative">
+                <ToggleGroupItem 
+                  value="resources" 
+                  className={cn(
+                    "px-4 py-2 rounded-full transition-colors relative flex items-center gap-1",
+                    activePage === 'resources' ? 'text-accent-foreground bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  )}
+                  onClick={handleResourcesClick}
+                >
+                  <LayoutDashboard size={16} className="inline-block mr-1.5" /> Resources
+                  <ChevronDown size={14} className={`transition-transform ${showResourcesDropdown ? 'rotate-180' : ''}`} />
+                </ToggleGroupItem>
+                
+                {/* Resources Dropdown */}
+                {showResourcesDropdown && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-card border border-border rounded-xl shadow-2xl p-4 z-50">
+                    <div className="space-y-2">
+                      {resourcesDropdownItems.map((item, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleResourceItemClick(item.route)}
+                          className="w-full text-left p-3 rounded-lg hover:bg-muted transition-colors group"
+                        >
+                          <div className="font-medium text-foreground group-hover:text-primary">
+                            {item.label}
+                          </div>
+                          <div className="text-xs text-muted-foreground mt-1">
+                            {item.desc}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 )}
-                onClick={handleNavClick('dashboard')}
-              >
-                <LayoutDashboard size={16} className="inline-block mr-1.5" /> Dashboard
-              </ToggleGroupItem>
+              </div>
               <ToggleGroupItem 
                 value="pricing" 
                 className={cn(
@@ -99,23 +146,40 @@ const Header = () => {
           <div className="md:hidden absolute top-20 left-4 right-4 bg-background/95 backdrop-blur-md py-4 px-6 border border-border rounded-2xl shadow-lg z-50">
             <div className="flex flex-col gap-4">
               <a 
-                href="#features" 
+                href="#solutions" 
                 className={`px-3 py-2 text-sm rounded-md transition-colors ${
-                  activePage === 'features' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  activePage === 'solutions' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                 }`}
-                onClick={handleNavClick('features')}
+                onClick={handleNavClick('solutions')}
               >
-                <CircleDot size={16} className="inline-block mr-1.5" /> Features
+                <CircleDot size={16} className="inline-block mr-1.5" /> Solutions
               </a>
-              <a 
-                href="#dashboard" 
-                className={`px-3 py-2 text-sm rounded-md transition-colors ${
-                  activePage === 'dashboard' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                }`}
-                onClick={handleNavClick('dashboard')}
-              >
-                <LayoutDashboard size={16} className="inline-block mr-1.5" /> Dashboard
-              </a>
+              <div className="space-y-2">
+                <button 
+                  className={`w-full text-left px-3 py-2 text-sm rounded-md transition-colors flex items-center justify-between ${
+                    activePage === 'resources' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  }`}
+                  onClick={handleResourcesClick}
+                >
+                  <span className="flex items-center">
+                    <LayoutDashboard size={16} className="inline-block mr-1.5" /> Resources
+                  </span>
+                  <ChevronDown size={14} className={`transition-transform ${showResourcesDropdown ? 'rotate-180' : ''}`} />
+                </button>
+                {showResourcesDropdown && (
+                  <div className="ml-4 space-y-1">
+                    {resourcesDropdownItems.map((item, index) => (
+                      <button
+                        key={index}
+                        onClick={() => handleResourceItemClick(item.route)}
+                        className="w-full text-left px-3 py-2 text-xs rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
               <a 
                 href="#pricing" 
                 className={`px-3 py-2 text-sm rounded-md transition-colors ${
@@ -159,6 +223,14 @@ const Header = () => {
           </div>
         </div>
       </header>
+      
+      {/* Backdrop for closing dropdown */}
+      {showResourcesDropdown && (
+        <div 
+          className="fixed inset-0 z-40" 
+          onClick={() => setShowResourcesDropdown(false)}
+        />
+      )}
     </div>
   );
 };
