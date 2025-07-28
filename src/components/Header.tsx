@@ -41,13 +41,13 @@ const Header = () => {
   };
 
   const resourcesDropdownItems = [
-    { label: 'Embed', route: '/resources/embed', desc: 'Guide to add Waterr AI agent to websites' },
-    { label: 'API', route: '/resources/api', desc: 'Coming soon placeholder with signup form' },
-    { label: 'Customization', route: '/resources/customization', desc: 'Build custom workflows and brand agents' },
-    { label: 'Link', route: '/resources/link', desc: 'Shareable links, deep links, meeting agents' },
-    { label: 'Blog', route: '/blog', desc: 'Blog articles, use cases, tips' },
-    { label: 'Schedule Meetings', route: '/resources/schedule', desc: 'Interface to create & manage meeting agents' },
-    { label: 'Personal Page', route: '/resources/personal', desc: 'User-specific landing pages with agent settings' }
+    { label: 'Embed', route: '/resources/embed', desc: 'Embed Waterr AI agents into any site with simple code blocks' },
+    { label: 'API', route: '/resources/api', desc: '"Coming soon" placeholder + signup form for early access' },
+    { label: 'Customization', route: '/resources/customization', desc: 'Configure workflows, agent tone, and advanced automation' },
+    { label: 'Link', route: '/resources/link', desc: 'Shareable/trackable links to trigger meetings or agents' },
+    { label: 'Blog', route: '/blog', desc: 'Content hub for tutorials, insights, and AI news' },
+    { label: 'Schedule Meetings', route: '/resources/schedule', desc: 'Interface to schedule recurring or instant AI agent sessions' },
+    { label: 'Personal Page', route: '/resources/personal', desc: 'Personal dashboard for saved sessions, preferences, and history' }
   ];
 
   const handleResourceItemClick = (route: string) => {
