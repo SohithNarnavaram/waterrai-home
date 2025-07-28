@@ -131,11 +131,11 @@ const Embed = () => {
         {/* Feature Benefits Section */}
         <section className="py-16 px-4 bg-gray-50">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
+            <div className="mb-12">
               <h2 className="text-3xl font-bold mb-6" style={{ color: '#1a1832' }}>
                 Embedding should be simple and adding a scenario to your website should be effortless
               </h2>
-              <div className="max-w-3xl mx-auto space-y-4 text-lg text-gray-700">
+              <div className="space-y-4 text-lg text-gray-700">
                 <p>
                   With Waterr AI, embedding an interactive scenario is as easy as clicking a button. The platform supports multiple formats that you can embed wherever needed.
                 </p>
