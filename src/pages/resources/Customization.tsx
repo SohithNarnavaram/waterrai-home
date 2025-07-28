@@ -291,29 +291,48 @@ const Customization = () => {
                     </div>
                   </div>
 
-                  {/* Avatar Selection */}
-                  <div>
-                    <h3 className="text-lg font-semibold mb-4">Avatar Selection</h3>
-                    <div className="grid grid-cols-3 gap-4">
-                      {[
-                        'photo-1581091226825-a6a2a5aee158',
-                        'photo-1581092795360-fd1ca04f0952',
-                        'photo-1485827404703-89b55fcc595e',
-                        'photo-1483058712412-4245e9b90334',
-                        'photo-1527576539890-dfa815648363',
-                        'photo-1488972685288-c3fd157d7c7a'
-                      ].map((imageId, index) => (
-                        <button
-                          key={index}
-                          className="group relative aspect-square rounded-lg overflow-hidden border-2 border-transparent hover:border-primary transition-colors"
-                        >
-                          <img
-                            src={`https://images.unsplash.com/${imageId}?w=150&h=150&fit=crop&crop=face`}
-                            alt={`Avatar option ${index + 1}`}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                          />
-                        </button>
-                      ))}
+                  {/* Feature Examples */}
+                  <div className="space-y-8">
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4">Persona Card Preview</h3>
+                      <div className="flex justify-center mb-4">
+                        <img 
+                          src="/lovable-uploads/c217a612-1fde-4b8c-b4eb-e05a5e034998.png" 
+                          alt="Persona card example"
+                          className="rounded-lg border border-border"
+                        />
+                      </div>
+                      <p className="text-sm text-muted-foreground text-center">
+                        Your AI persona appears as a professional contact card with avatar, name, and title across all conversations.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4">Persona Configuration</h3>
+                      <div className="flex justify-center mb-4">
+                        <img 
+                          src="/lovable-uploads/d409ea43-29fb-43f7-8f85-fdad75162b83.png" 
+                          alt="Persona editing interface"
+                          className="rounded-lg border border-border max-w-full h-auto"
+                        />
+                      </div>
+                      <p className="text-sm text-muted-foreground text-center">
+                        Configure your AI agent's personality, role, and communication style with detailed form controls and dropdown options.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4">Avatar Selection</h3>
+                      <div className="flex justify-center mb-4">
+                        <img 
+                          src="/lovable-uploads/fec6a8b7-9b05-436d-87b5-bed8865354c3.png" 
+                          alt="Avatar selection grid"
+                          className="rounded-lg border border-border max-w-full h-auto"
+                        />
+                      </div>
+                      <p className="text-sm text-muted-foreground text-center">
+                        Choose from a diverse collection of professional avatars to represent your AI agent. Click to select and preview in real-time.
+                      </p>
                     </div>
                   </div>
                 </CardContent>
