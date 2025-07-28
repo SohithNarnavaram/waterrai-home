@@ -6,17 +6,35 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
+import WaterrFooter from '@/components/WaterrFooter';
 
 const Customization = () => {
   const [activeView, setActiveView] = useState<'memo' | 'persona'>('memo');
+  const navigate = useNavigate();
 
   return (
     <>
       <Header />
       <div className="min-h-screen bg-background">
+        {/* Back to Home Button */}
+        <div className="pt-6 px-4">
+          <div className="max-w-4xl mx-auto">
+            <Button
+              variant="outline"
+              onClick={() => navigate('/')}
+              className="flex items-center gap-2 mb-6"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </div>
+        </div>
+
         {/* Hero Section */}
-        <section className="pt-10 pb-2 px-4">
+        <section className="pt-4 pb-2 px-4">
           <div className="max-w-[960px] mx-auto text-center">
             <h1 className="text-[2.8rem] font-bold text-foreground mb-6">
               Build Your Own AI Agent
@@ -255,6 +273,7 @@ const Customization = () => {
           </div>
         </section>
       </div>
+      <WaterrFooter />
     </>
   );
 };
