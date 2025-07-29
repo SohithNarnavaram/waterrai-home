@@ -33,7 +33,7 @@ const WaterrHeroSection = () => {
         <div className="w-full h-full opacity-10 bg-primary blur-[150px]"></div>
       </div>
       
-      <div className={`relative z-10 max-w-5xl text-center space-y-8 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className={`relative z-10 w-full text-center space-y-8 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         
         {/* Launch Tag */}
         <div className="flex justify-center -mt-4">
@@ -44,10 +44,11 @@ const WaterrHeroSection = () => {
         </div>
         
         {/* Main Headline */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter text-balance text-foreground leading-[0.9]">
-          Real-Time AI Meeting Agents for{' '}
-          <span className="text-primary">Humans Who Don't Have Time</span>
+        <h1 className="w-full text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter text-balance text-foreground leading-[0.9]">
+          General Real-time AI agent
         </h1>
+        
+        
         
         {/* Subtext */}
         <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed">
