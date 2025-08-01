@@ -1,0 +1,82 @@
+{
+  "Sheet1": [
+    {
+      "Name ": "Instant website lead engagement",
+      "Category": "Sales",
+      "Description ": "AI interacts with website visitors in real-time to qualify and convert leads.",
+      "Why AI can do it better": "AI is always available and can engage every visitor instantly, unlike humans.",
+      "Tags ": "End user",
+      "Business Value": "Increases lead conversion rate by engaging high-intent users at the right moment.",
+      "Feature to use ": "Voice, camera feeds, realtime body language, realtime intelligence",
+      "Post meeting User Analysis": null,
+      "Prompt": null,
+      "AI persona ": null,
+      "Persona Gender ": null
+    },
+    {
+      "Name ": "Automated discovery call",
+      "Category": "Sales",
+      "Description ": "AI conducts the first discovery call to gather pain points and qualification criteria.",
+      "Why AI can do it better": "Consistent questioning and available 24/7 to pre-qualify leads.",
+      "Tags ": "End user",
+      "Business Value": "Saves reps' time and ensures only qualified leads move to sales team.",
+      "Feature to use ": "Voice, camera feeds, realtime body language, realtime intelligence",
+      "Post meeting User Analysis": null,
+      "Prompt": null,
+      "AI persona ": null,
+      "Persona Gender ": null
+    },
+    {
+      "Name ": "Employee onboarding orientation",
+      "Category": "HR",
+      "Description ": "AI provides interactive onboarding sessions with company policies, tools, and culture.",
+      "Why AI can do it better": "Delivers consistent onboarding across time zones and roles.",
+      "Tags ": "Internal",
+      "Business Value": "Improves new hire ramp-up speed and frees up HR bandwidth.",
+      "Feature to use ": "Voice, screensharing, realtime intelligence",
+      "Post meeting User Analysis": null,
+      "Prompt": null,
+      "AI persona ": null,
+      "Persona Gender ": null
+    },
+    {
+      "Name ": "Customer support escalation",
+      "Category": "Support",
+      "Description ": "AI handles tier-1 support inquiries and escalates complex issues to human agents.",
+      "Why AI can do it better": "Provides instant 24/7 support with consistent quality and never gets frustrated.",
+      "Tags ": "End user",
+      "Business Value": "Reduces support costs and improves customer satisfaction with faster response times.",
+      "Feature to use ": "Voice, screensharing, realtime intelligence",
+      "Post meeting User Analysis": null,
+      "Prompt": null,
+      "AI persona ": null,
+      "Persona Gender ": null
+    },
+    {
+      "Name ": "Product demo walkthrough",
+      "Category": "Marketing",
+      "Description ": "AI delivers personalized product demonstrations to prospects at scale.",
+      "Why AI can do it better": "Can handle unlimited concurrent demos with personalized messaging for each prospect.",
+      "Tags ": "End user",
+      "Business Value": "Increases demo conversion rates while reducing sales team workload.",
+      "Feature to use ": "Voice, screensharing, realtime intelligence",
+      "Post meeting User Analysis": null,
+      "Prompt": null,
+      "AI persona ": null,
+      "Persona Gender ": null
+    },
+    {
+      "Name ": "Technical training session",
+      "Category": "Training",
+      "Description ": "AI conducts technical training sessions with interactive Q&A and skill assessment.",
+      "Why AI can do it better": "Adapts to individual learning pace and provides unlimited practice opportunities.",
+      "Tags ": "Internal",
+      "Business Value": "Reduces training costs and ensures consistent knowledge transfer across teams.",
+      "Feature to use ": "Voice, screensharing, realtime intelligence",
+      "Post meeting User Analysis": null,
+      "Prompt": null,
+      "AI persona ": null,
+      "Persona Gender ": null
+    }
+  ]
+} 
